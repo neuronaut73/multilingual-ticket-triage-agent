@@ -1,0 +1,59 @@
+{
+  "run_id": "run_20260712_210502",
+  "number_processed": 20,
+  "model_name": "llama3.2:3b",
+  "embedding_model": "intfloat/multilingual-e5-large",
+  "split": "eval",
+  "limit": 200,
+  "runtime_seconds": 72.67,
+  "topic_distribution": {
+    "Billing / Payment": 4,
+    "Claims / Damage": 4,
+    "Other": 1,
+    "Technical / Online Access": 10,
+    "Policy / Contract": 1
+  },
+  "urgency_distribution": {
+    "High": 6,
+    "Low": 2,
+    "Medium": 12
+  },
+  "next_action_distribution": {
+    "escalate_to_human_supervisor": 11,
+    "send_standard_faq_or_self_service_link": 2,
+    "forward_to_technical_support": 3,
+    "forward_to_billing_team": 3,
+    "create_or_update_claim": 1
+  },
+  "human_review_rate": 0.3,
+  "missing_info_rate": 0.0,
+  "evaluation_metrics": {
+    "urgency_accuracy": 0.7,
+    "urgency_macro_precision": 0.7778,
+    "urgency_macro_recall": 0.6741,
+    "urgency_macro_f1": 0.6631,
+    "topic_proxy_accuracy": 0.7,
+    "topic_macro_precision": 0.88,
+    "topic_macro_recall": 0.7,
+    "topic_macro_f1": 0.6743,
+    "next_action_proxy_agreement": 0.35,
+    "human_review_rate": 0.3,
+    "missing_info_rate": 0.0,
+    "average_confidence": 0.8515,
+    "escalation_rate": 0.55,
+    "faq_rate": 0.1,
+    "billing_forward_rate": 0.15,
+    "technical_forward_rate": 0.15,
+    "claim_action_rate": 0.05,
+    "reviewer_invocation_rate": 0.15,
+    "reviewer_topic_change_rate": 0.3333,
+    "reviewer_urgency_change_rate": 0.3333,
+    "avg_reviewer_seconds": 0.6673,
+    "avg_seconds_per_ticket": 3.63,
+    "p50_seconds_per_ticket": 2.841,
+    "p95_seconds_per_ticket": 6.136,
+    "min_seconds_per_ticket": 2.605,
+    "max_seconds_per_ticket": 9.635,
+    "runtime_seconds_total": 72.666
+  }
+}

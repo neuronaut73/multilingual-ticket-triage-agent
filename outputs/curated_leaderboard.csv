@@ -1,0 +1,8 @@
+group,run_id,triage_model,reviewer_enabled,reviewer_model,limit_n,runtime_seconds,avg_sec_ticket,reviewer_inv_rate,urgency_acc,urgency_f1,topic_acc,topic_f1,next_action_agr,human_review_rt,avg_conf
+controlled_reviewer_ab,run_20260713_014052_ab_off,llama3.2:3b,False,,200,580.8540692329407,2.904,0.0,0.555,0.5538,0.595,0.5596,0.195,0.42,0.8327
+controlled_reviewer_ab,run_20260713_014052_ab_on,llama3.2:3b,True,granite4.1:8b,200,719.932455778122,3.599,0.21,0.57,0.5603,0.6,0.5595,0.23,0.38,0.8493
+best_observed_reviewer,run_20260711_200952,llama3.2:3b,True,granite4.1:8b,200,709.6420316696167,3.545,0.205,0.57,0.5574,0.615,0.5847,0.24,0.37,0.8501
+analyzer_screening,run_20260710_032230,qwen3-coder:30b,,,200,991.8910529613495,4.958,,0.63,0.5789,0.635,0.6172,0.2,0.345,0.8055
+analyzer_screening,run_20260710_025155,devstral-small-2:24b,,,200,881.2038943767548,4.405,,0.655,0.6258,0.57,0.5205,0.18,0.34,0.9104
+analyzer_screening,run_20260710_015910,deepseek-r1:14b,,,200,774.1247704029083,3.87,,0.65,0.6174,0.58,0.5345,0.18,0.345,0.878
+analyzer_screening,run_20260710_013943,llama3.2:3b,,,200,579.741405248642,2.898,,0.615,0.5874,0.605,0.5671,0.17,0.36,0.8496

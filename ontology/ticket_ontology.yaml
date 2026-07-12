@@ -1,0 +1,671 @@
+meta:
+  source_csv: data/aa_dataset-tickets-multi-lang-5-2-50-version.csv
+  total_tickets: 28587
+  min_tag_count: 5
+  note: Kaggle labels (queue, priority, type, tag_1..tag_8) are historical evidence
+    and proxy evaluation data only. They are not the final HDI assignment output schema.
+    The assignment output schema is defined under assignment_triage_fields.
+assignment_triage_fields:
+  topic:
+    allowed_values:
+    - Policy / Contract
+    - Claims / Damage
+    - Billing / Payment
+    - Technical / Online Access
+    - Other
+  urgency:
+    allowed_values:
+    - Low
+    - Medium
+    - High
+  next_action:
+    allowed_values:
+    - send_standard_faq_or_self_service_link
+    - create_or_update_claim
+    - forward_to_billing_team
+    - forward_to_technical_support
+    - escalate_to_human_supervisor
+    - ask_for_more_information
+assignment_topic_hints:
+  Policy / Contract:
+    description: Policy documents, coverage, contract changes, cancellation, address
+      changes, subscriptions, plans, warranty, product terms.
+    example_signals:
+    - policy
+    - contract
+    - coverage
+    - cancellation
+    - subscription
+    - plan
+    - warranty
+    - license
+    - pricing
+    - product
+  Claims / Damage:
+    description: New or existing insurance claim, accident, damage, theft, loss, repair,
+      reimbursement.
+    example_signals:
+    - claim
+    - damage
+    - accident
+    - theft
+    - loss
+    - repair
+    - reimbursement
+    - incident
+    - investigation
+  Billing / Payment:
+    description: Premium, invoice, payment, refund, duplicate charge, direct debit,
+      transaction or billing issue.
+    example_signals:
+    - billing
+    - payment
+    - invoice
+    - refund
+    - transaction
+    - reconciliation
+    - financial
+    - cost
+    - premium
+    - charge
+  Technical / Online Access:
+    description: Login, app, portal, password, online account, authentication, access,
+      outage or technical issue.
+    example_signals:
+    - login
+    - password
+    - authentication
+    - access
+    - portal
+    - app
+    - online
+    - IT
+    - technical
+    - bug
+    - outage
+    - network
+  Other:
+    description: Unclear, out-of-scope, HR, marketing, sales, generic support or insufficient
+      information.
+    example_signals:
+    - HR
+    - Human Resources
+    - Marketing
+    - Sales
+    - Advertising
+    - Feedback
+historical_label_space:
+  queues:
+  - Billing and Payments
+  - Customer Service
+  - General Inquiry
+  - Human Resources
+  - IT Support
+  - Product Support
+  - Returns and Exchanges
+  - Sales and Pre-Sales
+  - Service Outages and Maintenance
+  - Technical Support
+  priorities:
+  - high
+  - low
+  - medium
+  types:
+  - Change
+  - Incident
+  - Problem
+  - Request
+  tags:
+  - API
+  - Access
+  - Access Control
+  - Access Management
+  - Account
+  - Accuracy
+  - Adjustment
+  - Advertising
+  - Advice
+  - Agency
+  - Alert
+  - Algorithm
+  - Analysis
+  - Analytics
+  - Android
+  - Antivirus
+  - Application
+  - Assistance
+  - Audience
+  - Audio
+  - Audit
+  - Authentication
+  - Automation
+  - Availability
+  - Backend
+  - Backup
+  - Best Practice
+  - Best Practices
+  - Billing
+  - Brand
+  - Brand Awareness
+  - Brand Development
+  - Brand Expansion
+  - Brand Growth
+  - Brand Management
+  - Brand Visibility
+  - Branding
+  - Breach
+  - Browser
+  - Budget
+  - Bug
+  - Business
+  - Business Development
+  - Business Expansion
+  - Business Growth
+  - CRM
+  - Cache
+  - Campaign
+  - Campaign Management
+  - Campaigns
+  - Capacity
+  - Case Study
+  - Certification
+  - Cloud
+  - Collaboration
+  - Communication
+  - Compatibility
+  - Competition
+  - Compliance
+  - Confidentiality
+  - Configuration
+  - Conflict
+  - Connection
+  - Connectivity
+  - Consultation
+  - Content
+  - Content Creation
+  - Content Development
+  - Content Marketing
+  - Content Strategy
+  - Conversion
+  - Coordination
+  - Correction
+  - Cost
+  - Crash
+  - Creative
+  - Critical
+  - Critical Issue
+  - Customer
+  - Customer Engagement
+  - Customer Experience
+  - Customer Interaction
+  - Customer Service
+  - Customer Support
+  - Customization
+  - Cyber Threat
+  - Cyberattack
+  - Cybersecurity
+  - Dashboard
+  - Data
+  - Data Access
+  - Data Accuracy
+  - Data Analysis
+  - Data Analytics
+  - Data Availability
+  - Data Backup
+  - Data Breach
+  - Data Discrepancy
+  - Data Encryption
+  - Data Exposure
+  - Data Inconsistency
+  - Data Integration
+  - Data Integrity
+  - Data Issue
+  - Data Leak
+  - Data Loss
+  - Data Management
+  - Data Pipeline
+  - Data Privacy
+  - Data Processing
+  - Data Protection
+  - Data Quality
+  - Data Security
+  - Data Synchronization
+  - Data Validation
+  - Data Visualization
+  - DataProtection
+  - Database
+  - Decision
+  - Decision Making
+  - Delay
+  - Deployment
+  - Development
+  - Device
+  - Diagnostics
+  - Digital
+  - Digital Campaign
+  - Digital Campaigns
+  - Digital Marketing
+  - Digital Platform
+  - Digital Strategy
+  - Digital Tool
+  - Digital Tools
+  - Digital Transformation
+  - Discount
+  - Discrepancy
+  - Disruption
+  - Document
+  - Documentation
+  - Driver
+  - ERP
+  - Effectiveness
+  - Efficiency
+  - Email
+  - Email Marketing
+  - Employee
+  - Encryption
+  - Engagement
+  - Enhancement
+  - Error
+  - Exchange
+  - Feature
+  - Feedback
+  - Finance
+  - Financial
+  - Financial Institution
+  - Financial Loss
+  - Financial Services
+  - Firewall
+  - Firmware
+  - Functionality
+  - Gateway
+  - Growth
+  - Guidance
+  - HIPAA
+  - HR
+  - Hardware
+  - Health
+  - Health Data
+  - Healthcare
+  - Healthcare Data
+  - Hospital
+  - Hospital Infrastructure
+  - Hospital System
+  - Hospital Systems
+  - IT
+  - Implementation
+  - Improvement
+  - Inaccuracy
+  - Incident
+  - Incident Response
+  - Influencer
+  - Information
+  - Information Security
+  - Infrastructure
+  - Innovation
+  - Inquiry
+  - Insight
+  - Installation
+  - Instruction
+  - Integration
+  - Integration Issue
+  - Integrity
+  - Investigation
+  - Investment
+  - Investment Analysis
+  - Investment Optimization
+  - Investment Strategy
+  - Invoice
+  - Issue
+  - Issue Resolution
+  - Kubernetes
+  - Lead
+  - License
+  - Load
+  - Load Balancing
+  - Log
+  - Login
+  - Machine Learning
+  - Maintenance
+  - Malware
+  - Management
+  - Market
+  - Market Trend
+  - Market Trends
+  - Marketing
+  - Marketing Agency
+  - Medical
+  - Medical Data
+  - Medical Information
+  - Medical Records
+  - Memory
+  - Messaging
+  - Microservice
+  - Microservices
+  - Model
+  - Monitoring
+  - Navigation
+  - Network
+  - Network Security
+  - Notification
+  - Onboarding
+  - Online
+  - Online Advertising
+  - Online Presence
+  - Online Visibility
+  - Optimization
+  - Order
+  - Organization
+  - Outage
+  - Outdated
+  - Outdated Security
+  - Outdated Software
+  - Outlook
+  - Outreach
+  - Password
+  - Patch
+  - Patient Data
+  - Patient Information
+  - Patient Privacy
+  - Payment
+  - Payment Gateway
+  - Payment Methods
+  - Performance
+  - Phishing
+  - Plan
+  - Planning
+  - Platform
+  - Plugin
+  - Policy
+  - Pricing
+  - Privacy
+  - Problem
+  - Process
+  - Process Improvement
+  - Product
+  - Productivity
+  - Project
+  - Project Management
+  - Promotion
+  - Protection
+  - Protocol
+  - Protocols
+  - Python
+  - Real-time
+  - Real-time Data
+  - Reboot
+  - Recommendation
+  - Reconciliation
+  - Recovery
+  - Refund
+  - Regulation
+  - Regulations
+  - Reinstallation
+  - Reliability
+  - Replacement
+  - Report
+  - Reporting
+  - Resolution
+  - Resource
+  - Resources
+  - Response
+  - Restart
+  - Return
+  - Revenue
+  - Review
+  - Risk
+  - Risk Management
+  - Root Cause
+  - SAP
+  - SAP ERP
+  - SEO
+  - SaaS
+  - Safety
+  - Sales
+  - Scalability
+  - Security
+  - Security Measures
+  - Segmentation
+  - Sensitive Data
+  - Sensitive Information
+  - Server
+  - Server Overload
+  - Service
+  - Setup
+  - Social Media
+  - Software
+  - Software Compatibility
+  - Software Conflict
+  - Software Integration
+  - Software Issue
+  - Software Update
+  - Solution
+  - Stability
+  - Strategy
+  - Subscription
+  - Support
+  - Synchronization
+  - System
+  - System Cache
+  - System Error
+  - System Integration
+  - System Integrity
+  - System Issue
+  - System Overload
+  - System Reboot
+  - System Restart
+  - System Scan
+  - System Security
+  - System Update
+  - System Vulnerability
+  - Target Audience
+  - Targeting
+  - Team
+  - Tech Support
+  - Technical Issue
+  - Technical Support
+  - Technology
+  - Telemedicine
+  - Testing
+  - Threat
+  - Tool
+  - Tools
+  - Traffic
+  - Training
+  - Transaction
+  - Trend
+  - Trial
+  - Troubleshooting
+  - Tutorial
+  - UI
+  - Unauthorized Access
+  - Update
+  - Upgrade
+  - Urgency
+  - Urgent
+  - Usability
+  - User Experience
+  - User Guide
+  - User Interface
+  - VPN
+  - Virus
+  - Visibility
+  - Visualization
+  - Vulnerability
+  - Warranty
+  - Website
+  - Workflow
+mapping:
+  priority_to_urgency:
+    low: Low
+    medium: Medium
+    high: High
+  queue_to_topic:
+    Billing and Payments: Billing / Payment
+    Customer Service: Other
+    General Inquiry: Other
+    Human Resources: Other
+    IT Support: Technical / Online Access
+    Product Support: Policy / Contract
+    Returns and Exchanges: Claims / Damage
+    Sales and Pre-Sales: Policy / Contract
+    Service Outages and Maintenance: Technical / Online Access
+    Technical Support: Technical / Online Access
+  topic_to_default_next_action:
+    Policy / Contract: send_standard_faq_or_self_service_link
+    Claims / Damage: create_or_update_claim
+    Billing / Payment: forward_to_billing_team
+    Technical / Online Access: forward_to_technical_support
+    Other: send_standard_faq_or_self_service_link
+historical_tag_to_assignment_topic_hints:
+  Policy / Contract:
+    strong_signals:
+    - Policy
+    - Contract
+    - Subscription
+    - Plan
+    - Pricing
+    - Warranty
+    - Product
+    - License
+    weak_signals:
+    - Feature
+    - Product Support
+    - Sales
+    - Customer Service
+  Claims / Damage:
+    strong_signals:
+    - Claim
+    - Damage
+    - Loss
+    - Accident
+    - Theft
+    - Repair
+    - Reimbursement
+    - Return
+    - Exchange
+    - Replacement
+    weak_signals:
+    - Incident
+    - Case Study
+    - Issue
+    - Investigation
+  Billing / Payment:
+    strong_signals:
+    - Billing
+    - Payment
+    - Invoice
+    - Refund
+    - Transaction
+    - Reconciliation
+    - Financial
+    - Cost
+    weak_signals:
+    - Finance
+    - Adjustment
+    - Discrepancy
+  Technical / Online Access:
+    strong_signals:
+    - Login
+    - Password
+    - Authentication
+    - Access
+    - Access Control
+    - Portal
+    - App
+    - Online
+    - Bug
+    - Outage
+    - Network
+    - VPN
+    - Error
+    weak_signals:
+    - IT
+    - Tech Support
+    - Technical Support
+    - Software
+    - System
+    - Platform
+    - Performance
+    - Connectivity
+  Other:
+    strong_signals:
+    - HR
+    - Human Resources
+    - Marketing
+    - Sales
+    - Advertising
+    weak_signals:
+    - Feedback
+    - General Inquiry
+    - Customer Service
+historical_queue_tag_hints:
+  Billing and Payments:
+  - Billing
+  - Payment
+  - Tech Support
+  - IT
+  - Feedback
+  Customer Service:
+  - IT
+  - Tech Support
+  - Performance
+  - Feedback
+  - Documentation
+  General Inquiry:
+  - Feedback
+  - IT
+  - Tech Support
+  - Performance
+  - Feature
+  Human Resources:
+  - IT
+  - Tech Support
+  - Performance
+  - Security
+  - Feedback
+  IT Support:
+  - IT
+  - Tech Support
+  - Performance
+  - Bug
+  - Disruption
+  Product Support:
+  - Tech Support
+  - IT
+  - Performance
+  - Feedback
+  - Bug
+  Returns and Exchanges:
+  - Tech Support
+  - IT
+  - Performance
+  - Feedback
+  - Bug
+  Sales and Pre-Sales:
+  - IT
+  - Feedback
+  - Tech Support
+  - Feature
+  - Documentation
+  Service Outages and Maintenance:
+  - IT
+  - Tech Support
+  - Disruption
+  - Outage
+  - Performance
+  Technical Support:
+  - Tech Support
+  - IT
+  - Performance
+  - Bug
+  - Security
+historical_type_hints:
+  Incident:
+    interpretation: Operational issue or interruption. Weak contextual signal only;
+      not a hard urgency rule.
+  Problem:
+    interpretation: Underlying or recurring issue. Weak contextual signal only.
+  Request:
+    interpretation: Customer request or information need. Weak contextual signal only.
+  Change:
+    interpretation: Change request. Weak contextual signal only.

@@ -1,0 +1,78 @@
+  input_path: data/dataset-tickets-multi-lang3-4k.csv
+
+  embedding:
+    model_name: intfloat/multilingual-e5-large
+    device: auto
+    batch_size: 32
+    normalize_embeddings: true
+
+  vector_store:
+    path: data/lancedb
+    table_name: ticket_embeddings
+
+  retrieval:
+    top_k: 5
+
+  llm:
+    provider: ollama
+    model_name: llama3.2:3b # llama3.1:8b # llama3.2:3b  # nemotron3:33b # llama3.1:8b # qwen3.6:27b    # qwen3-coder:30b # devstral-small-2:24b # gemma4:e4b # ornith:9b # deepseek-r1:14b # benchmark:
+    base_url: http://localhost:11434
+    temperature: 0.1
+    max_retries: 1
+    timeout_seconds: 120
+
+  batch:
+    enabled: true
+    split: eval
+    limit: 200
+    output_csv: outputs/triage_results.csv
+    trace_jsonl: outputs/triage_trace.jsonl
+    run_summary_json: outputs/run_summary.json
+    # Sampling strategy for eval batch.
+    # Supported values: natural | random | balanced_proxy_topic | balanced_proxy_urgency
+    # proxy_* labels are used only to select rows — never passed to the model.
+    sample_strategy:  balanced_proxy_topic # natural
+    random_seed: 42
+    stratify_by: proxy_topic
+    limit_per_label: 50
+    # Console logging during batch processing.
+    log_decisions: true       # print compact decision line per ticket
+    log_reviewer_events: true # print before/after block when reviewer is used
+
+  thresholds:
+    low_confidence: 0.60
+
+  reviewer:
+    enabled: false
+    model_name:  granite4.1:8b # gemma4:12b # llama3.1:8b # gemma4:12b # qwen2.5:7b-instruct-q8_0 # devstral-small-2:24b
+    base_url: http://localhost:11434
+    temperature: 0.1
+    max_retries: 1
+    trigger_flags:
+      - low_llm_confidence
+      - urgency_disagreement
+      - topic_disagreement
+    disagreement_confidence_ceiling: 0.85
+    urgency_disagreement_confidence_ceiling: 0.90
+
+  runtime:
+    rebuild_duckdb: false
+    rebuild_lancedb: true
+    run_smoke_search: false
+    run_end_to_end_smoke: false
+
+  leaderboard:
+    controlled_reviewer_run_ids:
+      - run_20260713_014052_ab_off
+      - run_20260713_014052_ab_on
+
+    featured_reviewer_run_ids:
+      - run_20260711_200952
+
+    analyzer_screening_run_ids:
+      - run_20260710_032230
+      - run_20260710_025155
+      - run_20260710_015910
+      - run_20260710_013943
+
+    featured_run_id: run_20260713_014052_ab_on

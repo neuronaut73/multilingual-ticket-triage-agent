@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Local data — full dataset, database, and vector index are not published
+data/*.duckdb
+data/lancedb/
+data/dataset-*.csv
+data/*
+!data/.gitkeep
+
+# Generated outputs — exclude everything except representative artifacts
+outputs/*
+!outputs/.gitkeep
+!outputs/triage_results.csv
+!outputs/triage_trace.jsonl
+!outputs/run_summary.json
+!outputs/curated_leaderboard.csv
+!outputs/curated_leaderboard.md
+
+# Logs
+*.log
+logs/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Model / cache files
+.cache/
+models/
+*.gguf
+*.safetensors
+*.bin
+
+# Kaggle credentials
+kaggle.json
+.kaggle/
+
+# Generated submission archive
+ticket_triage_agent.zip
+

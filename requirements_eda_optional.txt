@@ -1,0 +1,9 @@
+# Optional EDA tools.
+# Install only if needed:
+#   python -m pip install -r requirements-eda.txt
+#
+# Keep these separate from the core runtime because Auto-EDA tools can pull
+# additional dependencies and may create avoidable version conflicts.
+
+sweetviz>=2.3,<3.0
+ydata-profiling>=4.0,<5.0
